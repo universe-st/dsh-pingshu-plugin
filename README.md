@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-a63d40.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A520-3c873a)](package.json)
 
-[安装](#安装) · [快速上手](#快速上手) · [功能](#功能) · [界面](#界面) · [朗读](#朗读) · [数据](#数据目录) · [开发](#开发与自检)
+[安装](#安装) · [快速上手](#快速上手) · [功能](#功能) · [演示](#演示) · [界面](#界面) · [朗读](#朗读) · [数据](#数据目录) · [开发](#开发与自检)
 
 </div>
 
@@ -42,6 +42,12 @@
 - **写给耳朵听**：内置《评书表演手册》，要求把原文里的格言、警句、比喻翻成大白话，避免“听着高级但没懂”。
 - **四种朗读方式**：浏览器语音、火山引擎豆包、硅基流动、MOSS-TTSD 本地服务，按需切换。
 - **全部在本机**：书、摘要、文案、TTS 缓存都在 `$DSH_HOME/pingshu`，不上传云端；Markdown / JSON 可直接阅读和备份。
+
+## 演示
+
+[![评书插件介绍片](docs/images/cover.jpg)](https://github.com/universe-st/dsh-pingshu-plugin/releases/download/v1.0.0/pingshu-promo.mp4)
+
+[观看 2 分 15 秒的插件介绍片（1080p）](https://github.com/universe-st/dsh-pingshu-plugin/releases/download/v1.0.0/pingshu-promo.mp4)。片中的评书片段，来自本插件实际生成的《百年孤独》卷首与《悲惨世界》卷首。
 
 ## 界面
 
