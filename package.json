@@ -1,0 +1,57 @@
+{
+  "name": "dsh-pingshu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "评书：把电子书拆成回目，用中国传统评书讲给您听。AI 整理书目资料、生成评书文案，支持浏览器 TTS 朗读。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "docs",
+    "prompts",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-gateway",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.2 <0.3.0-0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@deepseek-ai/dsh-typert-protocol": "0.2.1-rc.2",
+    "fast-xml-parser": "^5.11.2",
+    "fflate": "^0.8.3",
+    "pdfjs-dist": "4.10.38",
+    "yaml": "^2.9.0",
+    "zod": "^4.6.7"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "smoke": "node test/client-smoke.mjs",
+    "verify:wire": "node scripts/verify-wire.mjs",
+    "fixtures": "node scripts/make-fixtures.mjs"
+  }
+}

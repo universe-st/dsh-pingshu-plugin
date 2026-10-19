@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="评书">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#F6EFE3"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#D9C9AE" stroke-width="2"/>
+  <path d="M13 20.5c5.2-2.2 10.4-2.1 15.6.4v24.6c-5.2-2.5-10.4-2.6-15.6-.4V20.5Z" fill="#263238"/>
+  <path d="M51 20.5c-5.2-2.2-10.4-2.1-15.6.4v24.6c5.2-2.5 10.4-2.6 15.6-.4V20.5Z" fill="#37474F"/>
+  <path d="M28.6 20.9h6.8v24.2h-6.8V20.9Z" fill="#8D6E63"/>
+  <path d="M17 27.2c2.8-.8 5.6-.7 8.4.4M17 31.8c2.8-.8 5.6-.7 8.4.4M17 36.4c2.8-.8 5.6-.7 8.4.4" stroke="#F6EFE3" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <path d="M38.6 27.2c2.8-1.1 5.6-1.2 8.4-.4M38.6 31.8c2.8-1.1 5.6-1.2 8.4-.4M38.6 36.4c2.8-1.1 5.6-1.2 8.4-.4" stroke="#F6EFE3" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <path d="M48.5 42.5c2.3 1.4 3.6 3.4 3.6 5.8" stroke="#A63D40" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M45.2 45.2c1.3.8 2 1.8 2 3.1" stroke="#A63D40" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <rect x="40" y="44" width="13" height="13" rx="2.5" fill="#A63D40"/>
+  <path d="M44 50.5h5M46.5 48v5" stroke="#F6EFE3" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

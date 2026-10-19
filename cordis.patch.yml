@@ -1,0 +1,5 @@
+# dsh-pingshu bundle patch.
+# 安装后由 profile 应用这一层；插件随即挂载到 Web GUI 侧栏「评书」。
+- insert:
+    - id: pingshu
+      name: dsh-pingshu
