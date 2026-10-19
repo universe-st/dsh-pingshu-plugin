@@ -10,11 +10,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-a63d40.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A520-3c873a)](package.json)
 
-[安装](#安装) · [快速上手](#快速上手) · [功能](#功能) · [朗读](#朗读) · [数据](#数据目录) · [开发](#开发与自检)
+[安装](#安装) · [快速上手](#快速上手) · [功能](#功能) · [界面](#界面) · [朗读](#朗读) · [数据](#数据目录) · [开发](#开发与自检)
 
 </div>
 
 ---
+
+<p align="center">
+  <img src="docs/images/cover.jpg" width="820" alt="评书：把电子书，说给你听" />
+</p>
 
 ## 这是什么
 
@@ -39,6 +43,18 @@
 - **四种朗读方式**：浏览器语音、火山引擎豆包、硅基流动、MOSS-TTSD 本地服务，按需切换。
 - **全部在本机**：书、摘要、文案、TTS 缓存都在 `$DSH_HOME/pingshu`，不上传云端；Markdown / JSON 可直接阅读和备份。
 
+## 界面
+
+<p align="center">
+  <img src="docs/images/ui-chapters.png" width="49%" alt="回目：自动分章，逐回开讲" />
+  <img src="docs/images/ui-reader.png" width="49%" alt="阅读器：说书人段落，可跟读高亮" />
+</p>
+
+<p align="center">
+  <img src="docs/images/ui-dossier.png" width="49%" alt="书目资料：人物、时间线、背景与术语" />
+  <img src="docs/images/ui-performances.png" width="49%" alt="评书版本：每版独立保存" />
+</p>
+
 ## 安装
 
 评书是一个 DSH bundle。在 DSH 里用插件管理器安装：
@@ -50,7 +66,7 @@ plugin_manager install_bundle { target: "/path/to/dsh-pingshu" }
 或在命令行：
 
 ```bash
-dsh plugin --profile desktop add /path/to/dsh-pingshu
+dsh plugin --profile web add /path/to/dsh-pingshu
 ```
 
 安装后刷新 Web GUI，侧栏会出现「评书」图标。
@@ -181,6 +197,7 @@ A：不会。卸载只移除插件，`$DSH_HOME/pingshu` 里的书和文案保�
 - 评书的结构与说法参考了传统评书的常见套路：定场诗、开脸儿、扣子、下回分解。
 - 朗读能力来自 [火山引擎豆包语音](https://www.volcengine.com/product/voice-tech)、[硅基流动](https://siliconflow.cn)、[MOSS-TTSD](https://github.com/OpenMOSS/MOSS-TTSD) 与浏览器 Web Speech API。
 - 感谢 DSH 插件生态里的同行为 bundle / slot / wire 协议留下的示例。
+- 宣传片里的评书片段，分别来自本插件实际生成的《百年孤独》卷首与《悲惨世界》卷首；BGM 由 [muse.top](https://muse.top) 提供。
 
 ## License
 

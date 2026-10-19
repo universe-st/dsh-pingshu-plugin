@@ -40,6 +40,24 @@
     "dsh": ">=0.2.1-rc.2 <0.3.0-0"
   },
   "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "pingshu",
+    "评书",
+    "ebook",
+    "epub",
+    "pdf",
+    "tts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/universe-st/dsh-pingshu-plugin.git"
+  },
+  "homepage": "https://github.com/universe-st/dsh-pingshu-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/universe-st/dsh-pingshu-plugin/issues"
+  },
   "dependencies": {
     "@deepseek-ai/dsh-typert-protocol": "0.2.1-rc.2",
     "fast-xml-parser": "^5.11.2",
