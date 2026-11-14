@@ -41,7 +41,7 @@
 - **评书文案**：按回目生成完整评书，包含开场定场诗、正文、扣子和下回预告；每版单独保存（v1、v2…），旧版不覆盖。
 - **不设字数上限**：不讲“十分钟带你读完”，按故事完整度讲完；想短一点，可以在开讲时选时长和讲解力度。
 - **写给耳朵听**：内置《评书表演手册》，要求把原文里的格言、警句、比喻翻成大白话，避免“听着高级但没懂”。
-- **四种朗读方式**：浏览器语音、火山引擎豆包、硅基流动、MOSS-TTSD 本地服务，按需切换。
+- **五种朗读方式**：浏览器语音、DeepSeek 语音、火山引擎豆包、硅基流动、MOSS-TTSD 本地服务，按需切换。
 - **全部在本机**：书、摘要、文案、TTS 缓存都在 `$DSH_HOME/pingshu`，不上传云端；Markdown / JSON 可直接阅读和备份。
 
 ## 演示
@@ -105,11 +105,14 @@ dsh plugin --profile web add /path/to/dsh-pingshu
 | 方式 | 要不要 Key | 说明 |
 | --- | --- | --- |
 | **浏览器语音** | 不需要 | 用系统自带的中文语音（Web Speech API）。装什么音色就用什么音色；浏览器不提供音频导出 |
+| **DeepSeek 语音** | 需要 | 官方 `/v1/tools/tts`，预置音色 `stella`（海星，女声）与 `tide`（暗潮，男声）；自动使用 DSH 里配置的 `DEEPSEEK_API_KEY`（也支持环境变量）；按字符计费（汉字算 2 字符），不支持调语速 |
 | **火山引擎豆包** | 需要 | 走单向流式 TTS HTTP 接口，按字符计费；预置音色用 `seed-tts-2.0`，复刻音色用 `seed-icl-2.0` |
 | **硅基流动** | 需要 | 托管 MOSS-TTSD-v0.5，OpenAI 风格 `/v1/audio/speech`；支持 `SILICON_FLOW_API_KEY` 环境变量 |
 | **MOSS-TTSD** | 不需要（要本机服务） | 开源的 1–5 人长对话 TTS，需自己起 SGLang 推理服务；支持参考音频克隆音色 |
 
-配置都在阅读器底部「配置」里。API Key 只保存在本机 `tts/tts.json`（权限 600），不会回传浏览器，也不会写进文案。测试连接和正式合成都会计费。
+配置都在阅读器底部「配置」里。DeepSeek 语音会自动取 DSH 设置里保存的 `DEEPSEEK_API_KEY`，不必在插件里再填一遍；自己填的 Key 存在本机 `tts/tts.json`（权限 600）。API Key 不会回传浏览器，也不会写进文案。测试连接和正式合成都会计费。
+
+云端提供方默认同时合成 3 段（本地 MOSS-TTSD 默认 1 段，避免显存吃紧），可在「配置 → 高级参数 → 并发数」里调 1–8。并发太高遇到 429 就调低；合成结果按段缓存，重试不会重复扣已经完成的段。
 
 ## 数据目录
 
@@ -180,7 +183,7 @@ node --check lib/index.js lib/client.js
 
 - **扫描版 PDF 不做 OCR**：没有文字层会提示先转文字版；DRM 加密书、密码 PDF 不支持。
 - **PDF 版面不保证**：多栏、表格、特殊字体可能抽错行；面板会警告，可在对话里让 AI「重新分章」。
-- **浏览器语音不能导出**：要音频文件请用火山豆包、硅基流动或 MOSS-TTSD。
+- **浏览器语音不能导出**：要音频文件请用 DeepSeek 语音、火山豆包、硅基流动或 MOSS-TTSD。
 - **TTS 不内置音色列表**：Speaker ID / voice 以各家控制台为准；不同资源对应不同音色集合。
 - **文案质量取决于模型与书**：写文案前会读手册，但长书、难书仍可能出现取舍偏差，建议先试听一回再批量生成。
 - **按本地单用户设计**：如果开启远程访问，请自行确认 DSH 的访问控制。
@@ -202,7 +205,7 @@ A：不会。卸载只移除插件，`$DSH_HOME/pingshu` 里的书和文案保�
 ## 致谢
 
 - 评书的结构与说法参考了传统评书的常见套路：定场诗、开脸儿、扣子、下回分解。
-- 朗读能力来自 [火山引擎豆包语音](https://www.volcengine.com/product/voice-tech)、[硅基流动](https://siliconflow.cn)、[MOSS-TTSD](https://github.com/OpenMOSS/MOSS-TTSD) 与浏览器 Web Speech API。
+- 朗读能力来自 [DeepSeek 语音合成](https://api-docs.deepseek.com/zh-cn/guides/tts/)、[火山引擎豆包语音](https://www.volcengine.com/product/voice-tech)、[硅基流动](https://siliconflow.cn)、[MOSS-TTSD](https://github.com/OpenMOSS/MOSS-TTSD) 与浏览器 Web Speech API。
 - 感谢 DSH 插件生态里的同行为 bundle / slot / wire 协议留下的示例。
 - 宣传片里的评书片段，分别来自本插件实际生成的《百年孤独》卷首与《悲惨世界》卷首；BGM 由 [muse.top](https://muse.top) 提供。
 

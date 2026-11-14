@@ -17,6 +17,7 @@
 - [OpenMOSS/MOSS-TTSD](https://github.com/OpenMOSS/MOSS-TTSD)（Apache 2.0）：长篇对话语音合成；插件通过其官方 SGLang `/generate` 接口接入，不打包模型。
 - [火山引擎豆包语音：单向流式语音合成 HTTP](https://docs.volcengine.com/docs/DoubaoVoice/unidirectional-streaming-text-to-speech-http?lang=zh)：插件直接调用 `/api/v3/tts/unidirectional`，使用 `X-Api-Key`、`X-Api-Resource-Id`、`X-Api-Request-Id`，按行解析 Chunked JSON 音频块。
 - [SiliconFlow：创建文本转语音请求](https://api-docs.siliconflow.cn/docs/api/audio-speech-post)：托管 `fnlp/MOSS-TTSD-v0.5`，OpenAI 风格 `/v1/audio/speech`，返回 MP3；插件支持 `[S1]/[S2]` 对话标签和单 voice 配置。
+- [DeepSeek：语音合成](https://api-docs.deepseek.com/zh-cn/guides/tts/)：`POST /v1/tools/tts` 边合成边返回 WAV，音色为 `stella`（海星，女声，默认）与 `tide`（暗潮，男声）；插件按段合成并缓存，角色变声时用另一个音色顶替对白。
 
 ## 术语与结构
 
